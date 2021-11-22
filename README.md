@@ -107,4 +107,8 @@ Helpful resources:
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Font Awesome](https://fontawesome.com)
 
+## How to run the Client and Server
+For the Server (has to be started first): `./gradlew server:run` (or you can also click on the Play/Debug icon next to the `main`-Method in `TimeTrackerServer`)
+
+For the Client:`./gradlew client:run`
 <p align="right">(<a href="#top">back to top</a>)</p>

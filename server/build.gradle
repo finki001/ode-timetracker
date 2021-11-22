@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+group 'at.fhtw'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+test {
+    useJUnitPlatform()
+}
+
+ext {
+    javaMainClass = "fhtw.timetracker.TimeTrackerServer"
+}
+
+application {
+    mainClassName = javaMainClass
+}
