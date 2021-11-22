@@ -21,17 +21,8 @@ before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
 build:
-  stage: build-client
+  stage: build
   script: gradle --build-cache client:assemble
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: push
-    paths:
-      - build
-      - .gradle
-
-  stage: build-server
-  script: gradle --build-cache server:assemble
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
