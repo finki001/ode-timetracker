@@ -3,7 +3,7 @@
 
 <div align="center">
     <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
-  <h1 align="center">Time Tracker</h1>
+  <!-- <h1 align="center">Time Tracker</h1> -->
 </div>
 
 
