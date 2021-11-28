@@ -38,3 +38,9 @@ test:
     paths:
       - build
       - .gradle
+
+code_quality:
+  image: docker:19.03.11
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report.json
