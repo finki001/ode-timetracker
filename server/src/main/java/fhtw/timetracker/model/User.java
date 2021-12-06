@@ -84,4 +84,8 @@ public class User {
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
+
+    public String getFullName() {
+        return String.format("%s %s", firstname, lastname);
+    }
 }
