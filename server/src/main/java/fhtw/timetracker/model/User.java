@@ -25,6 +25,18 @@ public class User {
     @Column(nullable = false)
     private String passwordHash;
 
+    public User() {
+
+    }
+
+    public User(String login, String firstname, String lastname, Role role, String passwordHash) {
+        this.login = login;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.role = role;
+        this.passwordHash = passwordHash;
+    }
+
     public int getId() {
         return id;
     }
