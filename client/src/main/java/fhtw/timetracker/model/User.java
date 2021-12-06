@@ -2,21 +2,20 @@ package fhtw.timetracker.model;
 
 public class User {
     private int id;
-    private String username;
+    private String login;
     private String firstname;
     private String lastname;
-    private String passwordHash;
+    private Role role;
 
     public User() {
 
     }
 
-    public User(String username, String firstname, String lastname, String passwordPlain) {
-        this.username = username;
+    public User(String username, String firstname, String lastname, Role role) {
+        this.login = username;
         this.firstname = firstname;
         this.lastname = lastname;
-        // TODO: hash password
-        this.passwordHash = passwordPlain;
+        this.role = role;
     }
 
     public int getId() {
@@ -27,12 +26,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstname() {
@@ -51,19 +50,19 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public Role getRole() {
+        return role;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+                ", username='" + login + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
