@@ -1,25 +1,31 @@
 package fhtw.timetracker.model;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-public class Record {
+public class RecordDTO {
 
-    @Id
-    @GeneratedValue
     private int id;
-
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String notes;
+    private UserDTO user;
+    private TaskDTO task;
 
-    @SuppressWarnings("JpaAttributeTypeInspection")
-    @ManyToOne
-    private User user;
+    public UserDTO getUser() {
+        return user;
+    }
 
-    @ManyToOne
-    private Task task;
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+
+    public TaskDTO getTask() {
+        return task;
+    }
+
+    public void setTask(TaskDTO task) {
+        this.task = task;
+    }
 
     public int getId() {
         return id;
@@ -51,21 +57,5 @@ public class Record {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
     }
 }
