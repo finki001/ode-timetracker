@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class TaskController {
@@ -21,8 +22,8 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-    public List<Task> findAllTasks() {
-        return taskRepository.findAll();
+    public List<TaskDTO> findAllTasks() {
+        return taskRepository.findAll().stream().map(DTOMapper::convertTaskToTaskDTO).collect(Collectors.toList());
     }
 
     @PostMapping("/tasks")

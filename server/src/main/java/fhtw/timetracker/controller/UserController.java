@@ -1,7 +1,6 @@
 package fhtw.timetracker.controller;
 
 import fhtw.timetracker.model.SignUpUser;
-import fhtw.timetracker.model.User;
 import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
