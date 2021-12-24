@@ -49,4 +49,9 @@ public class RecordService {
     public List<Record> findByUserId(int userId) {
         return recordRepository.findByUserId(userId);
     }
+
+    public boolean deleteRecord(int recordId) {
+        recordRepository.deleteById(recordId);
+        return true;
+    }
 }

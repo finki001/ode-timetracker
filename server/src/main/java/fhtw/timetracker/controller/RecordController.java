@@ -27,7 +27,12 @@ public class RecordController {
     }
 
     @PostMapping("/records")
-    public Record addRecord(@RequestBody RecordDTO record) throws Exception {
+    public Record createRecord(@RequestBody RecordDTO record) throws Exception {
         return recordService.createRecord(record);
+    }
+
+    @DeleteMapping("/records/{recordId}")
+    public boolean deleteRecord(@PathVariable int recordId) {
+        return recordService.deleteRecord(recordId);
     }
 }
