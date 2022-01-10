@@ -96,22 +96,13 @@ Distributed under the ___ License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- Resources -->
-## Resources
-
-Helpful resources:
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Font Awesome](https://fontawesome.com)
-
+## Code organization
+The project consists of 3 modules: commons, client and server. The commons module just holds model classes that are used by the client and the server to avoid code duplication. Client and server are self explanatory IMHO.
 ## How to run the Client and Server
 
-For the Server (start first): `./gradlew bootRun`<br><br>
+For the Server (start first): `./gradlew bootRun`<br>
+For the Client:`./gradlew run`<br><br>
 If this is your first start of the Server (<b>or the database under server/h2 has been deleted</b>) make sure to set `spring.sql.init.mode` to `always` in the `application.properties` file. 
 
 ### !!! You need to change this to `never` for consecutive starts !!!
-For the Client:`./gradlew run`
 <p align="right">(<a href="#top">back to top</a>)</p>
