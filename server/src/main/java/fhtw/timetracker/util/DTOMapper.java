@@ -26,12 +26,12 @@ public class DTOMapper {
     }
 
     public static UserDTO convertUsertoUserDTO(final User user) {
-        return new UserDTO(
-                user.getId(),
-                user.getLogin(),
-                user.getFirstname(),
-                user.getLastname(),
-                user.getRole()
-        );
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setLogin(user.getLogin());
+        userDTO.setFirstname(user.getFirstname());
+        userDTO.setLastname(user.getLastname());
+        userDTO.setRole(user.getRole());
+        return userDTO;
     }
 }

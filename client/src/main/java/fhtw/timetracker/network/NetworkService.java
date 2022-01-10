@@ -1,6 +1,6 @@
 package fhtw.timetracker.network;
 
-import fhtw.timetracker.model.User;
+import fhtw.timetracker.model.UserDTO;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,12 +12,14 @@ import java.util.List;
 
 public class NetworkService {
 
+    private final static String BASE_URL = "http://localhost:8080/";
+
     private final TimetrackerServerApi serverApi;
 
     public NetworkService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient.Builder().addInterceptor(new AuthenticationInterceptor()).build())
-                .baseUrl("http://localhost:8080/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -27,12 +29,12 @@ public class NetworkService {
     public void loadAllUsers() {
         serverApi.findAllUsers().enqueue(new Callback<>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+            public void onResponse(Call<List<UserDTO>> call, Response<List<UserDTO>> response) {
                 System.out.println("onResponse, " + (response.body() != null ? response.body().size() : 0));
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
+            public void onFailure(Call<List<UserDTO>> call, Throwable t) {
                 System.out.println("onFailure");
             }
         });

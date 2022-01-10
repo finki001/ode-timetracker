@@ -1,4 +1,5 @@
 rootProject.name = 'ODE TimeTracker'
+include 'commons'
 include 'client'
 include 'server'
 

@@ -109,7 +109,9 @@ Helpful resources:
 
 ## How to run the Client and Server
 
-For the Server (start first): `docker compose up -d` and `./gradlew bootRun`
+For the Server (start first): `./gradlew bootRun`<br><br>
+If this is your first start of the Server (<b>or the database under server/h2 has been deleted</b>) make sure to set `spring.sql.init.mode` to `always` in the `application.properties` file. 
 
+### !!! You need to change this to `never` for consecutive starts !!!
 For the Client:`./gradlew run`
 <p align="right">(<a href="#top">back to top</a>)</p>

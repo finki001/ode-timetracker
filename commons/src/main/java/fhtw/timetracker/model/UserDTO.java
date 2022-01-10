@@ -1,22 +1,12 @@
 package fhtw.timetracker.model;
 
-public class User {
+public class UserDTO {
+
     private int id;
     private String login;
     private String firstname;
     private String lastname;
     private Role role;
-
-    public User() {
-
-    }
-
-    public User(String username, String firstname, String lastname, Role role) {
-        this.login = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.role = role;
-    }
 
     public int getId() {
         return id;
@@ -56,15 +46,5 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + login + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
     }
 }

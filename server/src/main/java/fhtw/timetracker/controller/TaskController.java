@@ -4,10 +4,7 @@ import fhtw.timetracker.model.Task;
 import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.repository.TaskRepository;
 import fhtw.timetracker.util.DTOMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,5 +30,11 @@ public class TaskController {
 
         Task savedTask = taskRepository.save(task);
         return DTOMapper.convertTaskToTaskDTO(savedTask);
+    }
+
+    @DeleteMapping("/tasks/{taskId}")
+    public boolean deleteTask(@PathVariable int taskId){
+        taskRepository.deleteById(taskId);
+        return true;
     }
 }
