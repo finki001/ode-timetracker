@@ -107,9 +107,6 @@ Helpful resources:
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Font Awesome](https://fontawesome.com)
 
-## Prerequisites
-Install docker: https://docs.docker.com/desktop/windows/install/
-
 ## How to run the Client and Server
 
 For the Server (start first): `docker compose up -d` and `./gradlew bootRun`
