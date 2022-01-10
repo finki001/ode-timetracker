@@ -8,6 +8,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.net.HttpURLConnection;
 import java.util.List;
 
 public class NetworkService {
@@ -26,15 +27,23 @@ public class NetworkService {
         serverApi = retrofit.create(TimetrackerServerApi.class);
     }
 
+    /**
+     * TODO: this is only an example code to see, how to make a retrofit call
+     */
     public void loadAllUsers() {
         serverApi.findAllUsers().enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<List<UserDTO>> call, Response<List<UserDTO>> response) {
-                System.out.println("onResponse, " + (response.body() != null ? response.body().size() : 0));
+                // check if the status code is ok
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    System.out.println("onResponse, " + (response.body() != null ? response.body().size() : 0));
+                }
+                System.out.println("Response Code was: " + response.code());
             }
 
             @Override
             public void onFailure(Call<List<UserDTO>> call, Throwable t) {
+                // TODO: error handling
                 System.out.println("onFailure");
             }
         });
