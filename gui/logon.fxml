@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1e2122;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e2122;" BorderPane.alignment="CENTER">
+      <Pane style="-fx-background-color: #1e2122;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="175.0" layoutY="164.0" text="Username" textFill="WHITE">
                <font>
