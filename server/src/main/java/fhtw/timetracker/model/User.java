@@ -88,4 +88,16 @@ public class User {
     public String getFullName() {
         return String.format("%s %s", firstname, lastname);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", role=" + role +
+                ", passwordHash='" + passwordHash + '\'' +
+                '}';
+    }
 }

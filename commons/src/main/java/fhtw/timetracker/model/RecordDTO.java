@@ -58,4 +58,16 @@ public class RecordDTO {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    @Override
+    public String toString() {
+        return "RecordDTO{" +
+                "id=" + id +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", notes='" + notes + '\'' +
+                ", user=" + user +
+                ", task=" + task +
+                '}';
+    }
 }

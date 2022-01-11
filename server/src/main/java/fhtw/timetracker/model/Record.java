@@ -68,4 +68,16 @@ public class Record {
     public void setTask(Task task) {
         this.task = task;
     }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "id=" + id +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", notes='" + notes + '\'' +
+                ", user=" + user +
+                ", task=" + task +
+                '}';
+    }
 }
