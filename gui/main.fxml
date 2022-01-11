@@ -44,7 +44,7 @@
       </VBox>
    </top>
    <bottom>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox style="-fx-background-color: #202324;" BorderPane.alignment="CENTER">
          <children>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
