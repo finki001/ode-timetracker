@@ -9,17 +9,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #1e2122;" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" style="-fx-background-color: #99eef2;" text="Login">
+          <Button fx:id="btn_login" mnemonicParsing="false" style="-fx-background-color: #99eef2;" text="Login">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #a9a9a9;" text="Cancel">
+            <Button fx:id="btn_cancelLogin" mnemonicParsing="false" style="-fx-background-color: #a9a9a9;" text="Cancel">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
@@ -40,8 +39,8 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="277.0" layoutY="126.0" />
-            <PasswordField layoutX="277.0" layoutY="175.0" />
+            <TextField fx:id="txt_username" layoutX="277.0" layoutY="126.0" />
+            <PasswordField fx:id="txt_password" layoutX="277.0" layoutY="175.0" />
             <Label layoutX="165.0" layoutY="42.0" text="Time Tracking" textFill="#99eef2">
                <font>
                   <Font name="Arial Black" size="34.0" />
