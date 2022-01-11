@@ -106,3 +106,8 @@ If this is your first start of the Server (<b>or the database under server/h2 ha
 
 ### !!! You need to change this to `never` for consecutive starts !!!
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Color codes
+
+![colors](images/colors.png) 
