@@ -7,8 +7,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
-import retrofit2.http.Path;
 
 import java.util.List;
 
@@ -51,9 +49,6 @@ public class NetworkService {
         });
     }
 
-    /**
-     * TODO: this is only an example code to see, how to make a retrofit call
-     */
     public void loadAllUsers(NetworkCallback<List<UserDTO>> callback) {
         serverApi.findAllUsers().enqueue(new Callback<>() {
 
@@ -87,7 +82,7 @@ public class NetworkService {
                 if (response.isSuccessful()) {
                     callback.onResponse(true, responseBody, null);
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to create user HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to create User HTTP - " + response.code()));
                 }
             }
 
@@ -106,7 +101,7 @@ public class NetworkService {
                 if (response.isSuccessful()) {
                     callback.onResponse(true, responseBody, null);
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to create user HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to delete User HTTP - " + response.code()));
                 }
             }
 
@@ -130,7 +125,7 @@ public class NetworkService {
                         callback.onResponse(false, null, new Exception("Response Body is null"));
                     }
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to load all users, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to load all tasks, HTTP - " + response.code()));
                 }
             }
 
@@ -170,15 +165,9 @@ public class NetworkService {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 if (response.isSuccessful()) {
-                    Boolean responseBody = response.body();
-
-                    if (responseBody != null) {
-                        callback.onResponse(true, responseBody, null);
-                    } else {
-                        callback.onResponse(false, null, new Exception("Response Body is null"));
-                    }
+                    callback.onResponse(true, null, null);
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to create Task, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to delete Task, HTTP - " + response.code()));
                 }
             }
 
@@ -202,7 +191,7 @@ public class NetworkService {
                         callback.onResponse(false, null, new Exception("Response Body is null"));
                     }
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to load all users, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to load all records, HTTP - " + response.code()));
                 }
             }
 
@@ -226,7 +215,7 @@ public class NetworkService {
                         callback.onResponse(false, null, new Exception("Response Body is null"));
                     }
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to load all users, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to load add records for user id, HTTP - " + response.code()));
                 }
             }
 
@@ -237,8 +226,8 @@ public class NetworkService {
         });
     }
 
-    public  void createRecord(RecordDTO recordDTO, NetworkCallback<RecordDTO> callback) {
-        serverApi.createRecord(recordDTO).enqueue(new Callback<RecordDTO>() {
+    public void createRecord(RecordDTO recordDTO, NetworkCallback<RecordDTO> callback) {
+        serverApi.createRecord(recordDTO).enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<RecordDTO> call, Response<RecordDTO> response) {
                 if (response.isSuccessful()) {
@@ -250,7 +239,7 @@ public class NetworkService {
                         callback.onResponse(false, null, new Exception("Response Body is null"));
                     }
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to create Task, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to create Record, HTTP - " + response.code()));
                 }
             }
 
@@ -260,20 +249,15 @@ public class NetworkService {
             }
         });
     }
+
     public void deleteRecord(int recordId, NetworkCallback<Boolean> callback) {
-        serverApi.deleteRecord(recordId).enqueue(new Callback<Boolean>() {
+        serverApi.deleteRecord(recordId).enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 if (response.isSuccessful()) {
-                    Boolean responseBody = response.body();
-
-                    if (responseBody != null) {
-                        callback.onResponse(true, responseBody, null);
-                    } else {
-                        callback.onResponse(false, null, new Exception("Response Body is null"));
-                    }
+                    callback.onResponse(true, null, null);
                 } else {
-                    callback.onResponse(false, null, new Exception("Failed to create Task, HTTP - " + response.code()));
+                    callback.onResponse(false, null, new Exception("Failed to delete Record, HTTP - " + response.code()));
                 }
             }
 
@@ -283,5 +267,4 @@ public class NetworkService {
             }
         });
     }
-    // TODO: implement methods from TimetrackerServerApi…
 }
