@@ -7,6 +7,17 @@ public class SignUpUser {
     private Role role;
     private String passwordPlain;
 
+    public SignUpUser(String login, String firstname, String lastname, Role role, String passwordPlain) {
+        this.login = login;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.role = role;
+        this.passwordPlain = passwordPlain;
+    }
+
+    public SignUpUser() {
+    }
+
     public String getLogin() {
         return login;
     }

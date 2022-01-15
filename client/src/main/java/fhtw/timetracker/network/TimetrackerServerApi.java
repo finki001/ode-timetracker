@@ -35,7 +35,7 @@ public interface TimetrackerServerApi {
     Call<Boolean> deleteTask(@Path("taskId") int taskId);
 
     @GET("records")
-    Call<RecordDTO> findAllRecords();
+    Call<List<RecordDTO>> findAllRecords();
 
     @GET("records/{userId}")
     Call<List<RecordDTO>> findAllRecordsForUserId(@Path("userId") int userId);
