@@ -8,8 +8,13 @@ import java.util.List;
 
 public interface TimetrackerServerApi {
 
+    String BASE_URL = "http://localhost:8080/";
+
     @GET("users")
     Call<List<UserDTO>> findAllUsers();
+
+    @GET("users/{login}")
+    Call<UserDTO> findUserByLogin(@Path("login") String login);
 
     @POST("users")
     Call<Void> createUser(SignUpUser signUpUser);

@@ -26,8 +26,13 @@ public class UserController {
         return userService.findAll();
     }
 
+    @GetMapping("/users/{username}")
+    public UserDTO getUserByUsername(@PathVariable String username) throws Exception {
+        return userService.findByUsername(username);
+    }
+
     @DeleteMapping("/users/{userId}")
-    public boolean deleteUser(@PathVariable int userId){
+    public boolean deleteUser(@PathVariable int userId) {
         return userService.deleteUser(userId);
     }
 }

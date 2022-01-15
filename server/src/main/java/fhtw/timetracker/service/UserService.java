@@ -38,4 +38,14 @@ public class UserService {
         userRepository.deleteById(userId);
         return true;
     }
+
+    public UserDTO findByUsername(String username) throws Exception {
+        User user = userRepository.findUserByLogin(username);
+
+        if (user == null) {
+            throw new Exception("User not found");
+        }
+
+        return DTOMapper.convertUsertoUserDTO(user);
+    }
 }
