@@ -37,10 +37,24 @@ public class DetailsController {
     @FXML
     private BorderPane layoutRoot;
 
-    @FXML
-    private Label lbl_timeCalc;
-
     private RecordDTO record;
+
+    // label to write on TODO
+
+    @FXML
+    private Label label_datum;
+
+    @FXML
+    private Label label_start;
+
+    @FXML
+    private Label label_ende;
+
+    @FXML
+    private Label label_aufgabe;
+
+    @FXML
+    private Label label_notizen;
 
     @FXML
     void initialize() {
