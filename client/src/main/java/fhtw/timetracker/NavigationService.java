@@ -1,36 +1,28 @@
 package fhtw.timetracker;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class NavigationService {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-
-    public void loginSuccessful() {
-        // switch to record screnn
+    public void loginSuccessful(final Scene scene) {
+        navigate(scene, "record");
     }
 
-    /*
-    public void switchToScene1(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void logout(final Scene scene) {
+        navigate(scene, "login");
     }
 
-    public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("logon.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    private void navigate(final Scene scene, final String name) {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource(name + ".fxml")));
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    */
 }
