@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,8 +32,8 @@ public class OverviewController {
     void initialize() {
         networkService.findAllRecordsForUserId(StateService.getInstance().getUserId(), (success, records, error) -> {
             if (success) {
-                this.records = records;
-                recordsListView.setItems(FXCollections.observableArrayList(records.stream().map(record ->
+                this.records = records.stream().sorted(Comparator.comparing(RecordDTO::getStartTime).reversed()).collect(Collectors.toList());
+                recordsListView.setItems(FXCollections.observableArrayList(this.records.stream().map(record ->
                         dateFormatter.format(record.getStartTime()) + ", " + timeFormatter.format(record.getStartTime()) + " - " + timeFormatter.format(record.getEndTime()) + (record.getNotes().isBlank() ? "" : ", Notiz: " + record.getNotes().trim())).collect(Collectors.toList()))
                 );
             }

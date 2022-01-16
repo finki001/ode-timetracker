@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202324#202324;"
-            xmlns="http://javafx.com/javafx/17" fx:controller="fhtw.timetracker.fxml.controller.TaskListController">
+            xmlns="http://javafx.com/javafx" fx:controller="fhtw.timetracker.fxml.controller.TaskListController">
     <center>
         <ListView fx:id="task_list" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
