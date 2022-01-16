@@ -37,8 +37,22 @@ public class DetailsController {
     @FXML
     private BorderPane layoutRoot;
 
+    // label to write on TODO
+
     @FXML
-    private Label lbl_timeCalc;
+    private Label label_datum;
+
+    @FXML
+    private Label label_start;
+
+    @FXML
+    private Label label_ende;
+
+    @FXML
+    private Label label_aufgabe;
+
+    @FXML
+    private Label label_notizen;
 
     private RecordDTO record;
 
@@ -61,6 +75,11 @@ public class DetailsController {
                 }
             }
         });
+    }
+
+    @FXML
+    void cancelButtonClicked(ActionEvent event) {
+        navigationService.showOverview(layoutRoot.getScene());
     }
 
     @FXML
