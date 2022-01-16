@@ -10,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 import java.time.LocalDateTime;
@@ -24,18 +23,7 @@ public class DetailsController {
     private Button btn_cancel;
 
     @FXML
-    private MenuItem btn_close1;
-
-    @FXML
-    private MenuItem btn_close2;
-
-    @FXML
-    private MenuItem btn_overview;
-
-    @FXML
     private BorderPane layoutRoot;
-
-    // label to write on TODO
 
     @FXML
     private Label label_datum;

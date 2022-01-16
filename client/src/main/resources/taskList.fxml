@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202324#202324;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fhtw.timetracker.fxml.controller.TaskListController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202324#202324;"
+            xmlns="http://javafx.com/javafx/17" fx:controller="fhtw.timetracker.fxml.controller.TaskListController">
     <center>
         <ListView fx:id="task_list" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </BorderPane.margin></ListView>
+            <BorderPane.margin>
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+            </BorderPane.margin>
+        </ListView>
     </center>
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-          <menus>
-              <Menu mnemonicParsing="false" text="App">
-                  <items>
-                      <MenuItem fx:id="btn_overview" mnemonicParsing="false" onAction="#showOverview" text="Overview" />
-                  </items>
-              </Menu>
-              <Menu mnemonicParsing="false" text="Aufgaben">
-                  <items>
-                      <MenuItem mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen" />
-                  </items>
-              </Menu>
-          </menus>
-      </MenuBar>
-   </top>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="App">
+                    <items>
+                        <MenuItem fx:id="btn_overview" mnemonicParsing="false" onAction="#showOverview"
+                                  text="Overview"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Aufgaben">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
 </BorderPane>

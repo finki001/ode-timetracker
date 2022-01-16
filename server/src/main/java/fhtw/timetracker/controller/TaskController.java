@@ -33,7 +33,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/tasks/{taskId}")
-    public boolean deleteTask(@PathVariable int taskId){
+    public boolean deleteTask(@PathVariable int taskId) {
         taskRepository.deleteById(taskId);
         return true;
     }

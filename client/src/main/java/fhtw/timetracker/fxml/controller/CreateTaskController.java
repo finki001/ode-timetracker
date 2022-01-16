@@ -30,11 +30,6 @@ public class CreateTaskController {
     }
 
     @FXML
-    public void initialize() {
-
-    }
-
-    @FXML
     void cancel() {
         navigationService.showTaskList(text_task_name.getScene());
     }

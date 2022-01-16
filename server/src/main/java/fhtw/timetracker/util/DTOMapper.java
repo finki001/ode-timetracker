@@ -1,11 +1,6 @@
 package fhtw.timetracker.util;
 
-import fhtw.timetracker.model.RecordDTO;
-import fhtw.timetracker.model.TaskDTO;
-import fhtw.timetracker.model.Task;
-import fhtw.timetracker.model.Record;
-import fhtw.timetracker.model.User;
-import fhtw.timetracker.model.UserDTO;
+import fhtw.timetracker.model.*;
 
 public class DTOMapper {
 

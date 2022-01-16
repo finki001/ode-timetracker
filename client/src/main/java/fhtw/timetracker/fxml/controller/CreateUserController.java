@@ -4,7 +4,6 @@ import fhtw.timetracker.NavigationService;
 import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.LoginService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -13,9 +12,6 @@ public class CreateUserController {
     private final LoginService loginService = new LoginService();
     private final NavigationService navigationService = new NavigationService();
     private final AlertService alertService = new AlertService();
-
-    @FXML
-    private Button btn_create_user;
 
     @FXML
     private TextField text_firstname;

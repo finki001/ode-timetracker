@@ -7,10 +7,12 @@ import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.NetworkService;
 import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.StateService;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 import java.time.LocalDate;
@@ -31,22 +33,7 @@ public class RecordController {
     private BorderPane layoutRoot;
 
     @FXML
-    private Button btn_cancel;
-
-    @FXML
-    private MenuItem btn_close;
-
-    @FXML
-    private MenuItem btn_close1;
-
-    @FXML
-    private Button btn_save;
-
-    @FXML
     private DatePicker datePicker;
-
-    @FXML
-    private Label lbl_timeCalc;
 
     @FXML
     private TextArea txt_description;
@@ -58,9 +45,6 @@ public class RecordController {
     private TextField txt_startTime;
 
     @FXML
-    private TextField txt_title;
-
-    @FXML
     private ChoiceBox<String> choiceBoxTasks;
 
     private List<TaskDTO> tasks;
@@ -69,8 +53,8 @@ public class RecordController {
     void initialize() {
         networkService.findAllTasks((success, tasks, error) -> {
             if (success) {
-                    this.tasks = tasks;
-                    choiceBoxTasks.setItems(FXCollections.observableArrayList(tasks.stream().map(TaskDTO::getName).collect(Collectors.toList())));
+                this.tasks = tasks;
+                choiceBoxTasks.setItems(FXCollections.observableArrayList(tasks.stream().map(TaskDTO::getName).collect(Collectors.toList())));
             }
         });
     }

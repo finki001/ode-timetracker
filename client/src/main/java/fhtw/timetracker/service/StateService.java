@@ -28,7 +28,9 @@ public class StateService {
         return recordId;
     }
 
-    public void setRecordId(int recordId) { this.recordId = recordId; }
+    public void setRecordId(int recordId) {
+        this.recordId = recordId;
+    }
 
     public String getAuthHeader() {
         return authHeader;

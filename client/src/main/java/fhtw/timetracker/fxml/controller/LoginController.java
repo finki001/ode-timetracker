@@ -17,9 +17,6 @@ public class LoginController {
     private final AlertService alertService = new AlertService();
 
     @FXML
-    private Button btn_cancelLogin;
-
-    @FXML
     private Button btn_login;
 
     @FXML

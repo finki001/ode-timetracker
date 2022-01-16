@@ -8,9 +8,7 @@ import fhtw.timetracker.service.StateService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -21,29 +19,13 @@ public class OverviewController {
     private final NavigationService navigationService = new NavigationService();
     private final NetworkService networkService = new NetworkService();
     private final AlertService alertService = new AlertService();
-
-    @FXML
-    private Button btn_back;
-
-    @FXML
-    private MenuItem btn_close;
-
-    @FXML
-    private MenuItem btn_create_record;
-
-    @FXML
-    private MenuItem btn_logout;
-
-    @FXML
-    private Label lbl_timeCalc;
-
-    @FXML
-    private ListView<String> recordsListView;
-
-    private List<RecordDTO> records;
-
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+    @FXML
+    private Button btn_back;
+    @FXML
+    private ListView<String> recordsListView;
+    private List<RecordDTO> records;
 
     @FXML
     void initialize() {

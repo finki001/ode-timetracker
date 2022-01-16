@@ -21,11 +21,9 @@ public class TaskListController {
     private final NetworkService networkService = new NetworkService();
     private final AlertService alertService = new AlertService();
     private final NavigationService navigationService = new NavigationService();
-
+    private final List<TaskDTO> taskList = new ArrayList<>();
     @FXML
     private ListView<TaskDTO> task_list;
-
-    private final List<TaskDTO> taskList = new ArrayList<>();
 
     @FXML
     public void initialize() {
