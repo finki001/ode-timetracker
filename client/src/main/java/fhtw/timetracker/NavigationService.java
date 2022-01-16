@@ -1,5 +1,7 @@
 package fhtw.timetracker;
 
+import fhtw.timetracker.network.AuthenticationInterceptor;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,12 +11,17 @@ import java.util.Objects;
 
 public class NavigationService {
 
-    public void loginSuccessful(final Scene scene) {
+    public void logout(final Scene scene) {
+        AuthenticationInterceptor.authHeader = "";
+        navigate(scene, "login");
+    }
+
+    public void showCreateRecord(Scene scene) {
         navigate(scene, "record");
     }
 
-    public void logout(final Scene scene) {
-        navigate(scene, "login");
+    public void showOverview(Scene scene) {
+        navigate(scene, "overview");
     }
 
     private void navigate(final Scene scene, final String name) {
@@ -24,5 +31,10 @@ public class NavigationService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void closeApp() {
+        Platform.exit();
+        System.exit(0);
     }
 }

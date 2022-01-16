@@ -8,6 +8,13 @@ public class UserDTO {
     private String lastname;
     private Role role;
 
+    public UserDTO() {
+    }
+
+    public UserDTO(final int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

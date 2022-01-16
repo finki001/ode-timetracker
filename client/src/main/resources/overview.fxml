@@ -15,25 +15,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202324;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202324;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fhtw.timetracker.fxml.controller.OverviewController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
             <MenuBar cache="true" style="-fx-background-color: #f5f5f5;">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="App">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem fx:id="btn_create_record" mnemonicParsing="false" onAction="#createRecord" text="Create Record" />
+                        <MenuItem fx:id="btn_logout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                        <MenuItem fx:id="btn_close" mnemonicParsing="false" onAction="#close" text="Close" />
                   </items>
                 </Menu>
               </menus>

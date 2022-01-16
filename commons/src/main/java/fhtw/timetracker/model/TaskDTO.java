@@ -5,6 +5,13 @@ public class TaskDTO {
     private int id;
     private String name;
 
+    public TaskDTO() {
+    }
+
+    public TaskDTO(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

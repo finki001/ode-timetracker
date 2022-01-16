@@ -1,5 +1,6 @@
 package fhtw.timetracker.network;
 
+import com.google.gson.GsonBuilder;
 import fhtw.timetracker.model.*;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -8,6 +9,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class NetworkService {
@@ -16,11 +18,13 @@ public class NetworkService {
 
     private final TimetrackerServerApi serverApi;
 
+    public static int userId;
+
     public NetworkService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient.Builder().addInterceptor(new AuthenticationInterceptor()).build())
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create()))
                 .build();
 
         serverApi = retrofit.create(TimetrackerServerApi.class);

@@ -21,6 +21,7 @@ public class LoginService {
 
     private final NetworkService networkService;
 
+
     public LoginService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient.Builder().addInterceptor(new AuthenticationInterceptor()).build())

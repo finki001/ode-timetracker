@@ -1,8 +1,7 @@
 package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
-import fhtw.timetracker.model.UserDTO;
-import fhtw.timetracker.network.NetworkCallback;
+import fhtw.timetracker.network.NetworkService;
 import fhtw.timetracker.service.LoginService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -43,9 +42,10 @@ public class LoginController {
         } else if (password.isBlank()) {
             txt_password.setPromptText("Field must not be empty");
         } else {
-            loginService.login(username, password, (success, response, error) -> {
+            loginService.login(username, password, (success, user, error) -> {
                 if (success) {
-                    navigationService.loginSuccessful(btn_login.getScene());
+                    navigationService.showOverview(btn_login.getScene());
+                    NetworkService.userId = user.getId();
                 } else {
                     Platform.runLater(() -> {
                         txt_username.clear();
