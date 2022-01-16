@@ -50,7 +50,7 @@ public class LoginController {
 
         loginService.login(username, password, (success, user, error) -> {
             if (success) {
-                StateService.getInstance().setUserId(user.getId());navigationService.showOverview(btn_login.getScene());
+                StateService.getInstance().setUserId(user.getId());
                 navigationService.showOverview(btn_login.getScene());
             } else {
                 Platform.runLater(() -> {
