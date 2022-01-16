@@ -56,7 +56,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <ListView layoutX="23.0" layoutY="28.0" prefHeight="286.0" prefWidth="419.0" />
+            <ListView fx:id="recordsListView" layoutX="23.0" layoutY="28.0" prefHeight="286.0" prefWidth="419.0" />
          </children>
       </Pane>
    </left>

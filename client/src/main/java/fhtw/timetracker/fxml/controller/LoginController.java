@@ -50,8 +50,8 @@ public class LoginController {
 
         loginService.login(username, password, (success, user, error) -> {
             if (success) {
+                StateService.getInstance().setUserId(user.getId());navigationService.showOverview(btn_login.getScene());
                 navigationService.showOverview(btn_login.getScene());
-                StateService.getInstance().setUserId(user.getId());
             } else {
                 Platform.runLater(() -> {
                     alertService.showAlert("Falsche Login-Daten", "Bitte überprüfen Sie Benutzername und Passwort.");

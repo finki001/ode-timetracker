@@ -1,14 +1,26 @@
 package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
+import fhtw.timetracker.model.RecordDTO;
+import fhtw.timetracker.model.TaskDTO;
+import fhtw.timetracker.model.UserDTO;
+import fhtw.timetracker.network.NetworkService;
+import fhtw.timetracker.service.StateService;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class OverviewController {
 
     private final NavigationService navigationService = new NavigationService();
+    private final NetworkService networkService = new NetworkService();
 
     @FXML
     private Button btn_back;
@@ -24,6 +36,23 @@ public class OverviewController {
 
     @FXML
     private Label lbl_timeCalc;
+
+    @FXML
+    private ListView recordsListView;
+
+    private List<RecordDTO> records;
+
+    @FXML
+    void initialize() {
+        networkService.findAllRecordsForUserId(StateService.getInstance().getUserId(), (success, records, error) -> {
+            if (success) {
+                Platform.runLater(() -> {
+                    this.records = records;
+                    recordsListView.setItems(FXCollections.observableArrayList(records.stream().map(RecordDTO::getNotes).collect(Collectors.toList())));
+                });
+            }
+        });
+    }
 
     @FXML
     void close() {
