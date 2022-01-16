@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="background_dark" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1e2122; -fx-background-image: C:\Users\schah\OneDrive\FH\Semester 3\ODE\Projekt\GIT\b3\images\preview.png;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="background_dark" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1e2122; -fx-background-image: C:\Users\schah\OneDrive\FH\Semester 3\ODE\Projekt\GIT\b3\images\preview.png;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fhtw.timetracker.fxml.controller.LoginController">
    <center>
       <Pane id="background_dark" style="-fx-background-color: #1e2122;" BorderPane.alignment="CENTER">
          <children>

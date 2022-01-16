@@ -20,8 +20,8 @@ public class TimeTrackerClient extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("test.fxml")));
-        primaryStage.setScene(new Scene(root, 550, 350));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("login.fxml")));
+        primaryStage.setScene(new Scene(root, 600, 400));
 
         primaryStage.setTitle("TimeTracker Client");
         primaryStage.show();
