@@ -16,6 +16,7 @@ public class NavigationService {
 
 
     public void loginSuccessful() {
+        System.out.println("irgendein scheiß");
         // switch to record screnn
     }
 

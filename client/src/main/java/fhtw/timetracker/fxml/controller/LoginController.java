@@ -1,7 +1,10 @@
 package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
+import fhtw.timetracker.model.UserDTO;
+import fhtw.timetracker.network.NetworkCallback;
 import fhtw.timetracker.service.LoginService;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,10 +33,29 @@ public class LoginController {
 
     }
 
+
     @FXML
     void loginButtonClicked(ActionEvent event) {
+        String username = txt_username.getText();
+        String password = txt_password.getText();
 
-        // when login successful:
-        navigationService.loginSuccessful();
+        if (username.isBlank()) {
+            txt_username.setPromptText("Field must not be empty");
+        } else if (password.isBlank()) {
+            txt_password.setPromptText("Field must not be empty");
+        } else {
+            loginService.login(username, password, (success, response, error) -> {
+                if (success) {
+                    navigationService.loginSuccessful();
+                } else {
+                    Platform.runLater(() -> {
+                        txt_username.clear();
+                        txt_username.setPromptText("User must exist");
+                        txt_password.clear();
+                        txt_password.setPromptText("Password must be valid");
+                    });
+                }
+            });
+        }
     }
 }
