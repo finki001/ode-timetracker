@@ -5,6 +5,7 @@ public class StateService {
     private static StateService stateService;
 
     private int userId;
+    private int recordId;
     private String authHeader = "";
 
     public static StateService getInstance() {
@@ -23,6 +24,12 @@ public class StateService {
         this.userId = userId;
     }
 
+    public int getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(int recordId) { this.recordId = recordId; }
+
     public String getAuthHeader() {
         return authHeader;
     }
@@ -33,6 +40,7 @@ public class StateService {
 
     public void reset() {
         userId = -1;
+        recordId = -1;
         authHeader = "";
     }
 }

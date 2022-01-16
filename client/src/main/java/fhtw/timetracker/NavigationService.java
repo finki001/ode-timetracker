@@ -24,6 +24,10 @@ public class NavigationService {
         navigate(scene, "overview");
     }
 
+    public void showDetails(Scene scene) {
+        navigate(scene, "details");
+    }
+
     private void navigate(final Scene scene, final String name) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource(name + ".fxml")));

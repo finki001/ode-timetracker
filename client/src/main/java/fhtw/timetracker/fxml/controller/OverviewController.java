@@ -76,7 +76,8 @@ public class OverviewController {
             return;
         }
 
-        // Call scene switch to details for selected record
+        StateService.getInstance().setRecordId(selectedRecord.getId());
+        navigationService.showDetails(btn_back.getScene());
     }
 
     @FXML
