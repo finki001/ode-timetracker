@@ -28,7 +28,10 @@ public class TimeTrackerClientController {
 
             // modifies the button text -> can't be run in this thread, but has to be enqueued to the main JavaFX loop
             // Platform.runLater does exactly this, it runs "later" but not visible later
-            Platform.runLater(() -> button.setText("Hallo, " + user.getFirstname() + " " + user.getLastname()));
+            if (user != null) {
+                Platform.runLater(() -> button.setText("Hallo, " + user.getFirstname() + " " + user.getLastname()));
+            }
+
 
             // this is how you make a nested call -> shouldn't really be needed, but be careful with variable naming of the callback parameters
             // -> they have to be different
