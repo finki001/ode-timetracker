@@ -33,7 +33,6 @@ public class LoginController {
 
     }
 
-
     @FXML
     void loginButtonClicked(ActionEvent event) {
         String username = txt_username.getText();
@@ -46,7 +45,7 @@ public class LoginController {
         } else {
             loginService.login(username, password, (success, response, error) -> {
                 if (success) {
-                    navigationService.loginSuccessful();
+                    navigationService.loginSuccessful(btn_login.getScene());
                 } else {
                     Platform.runLater(() -> {
                         txt_username.clear();
