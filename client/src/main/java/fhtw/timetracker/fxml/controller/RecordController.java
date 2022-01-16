@@ -5,10 +5,10 @@ import fhtw.timetracker.model.RecordDTO;
 import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.NetworkService;
+import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +25,7 @@ public class RecordController {
 
     private final NavigationService navigationService = new NavigationService();
     private final NetworkService networkService = new NetworkService();
+    private final AlertService alertService = new AlertService();
 
     @FXML
     private BorderPane layoutRoot;
@@ -87,31 +88,31 @@ public class RecordController {
     }
 
     @FXML
-    void saveClicked(ActionEvent event) {
-        RecordDTO record = new RecordDTO();
+    void saveClicked() {
         LocalDate date = datePicker.getValue();
         String startTimeString = txt_startTime.getText();
         String endTimeString = txt_endTime.getText();
 
         int selectedTaskIndex = choiceBoxTasks.getSelectionModel().getSelectedIndex();
-        TaskDTO selectedTask = this.tasks.get(selectedTaskIndex);
-        if (selectedTask == null) {
-            System.out.println("Select a Task.");
-            return;
-        }
+        TaskDTO selectedTask = selectedTaskIndex > -1 ? this.tasks.get(selectedTaskIndex) : null;
 
         if (date == null) {
-            System.out.println("Please select a Date");
+            alertService.showAlert("Kein Datum ausgewählt", "Wählen Sie das Datum aus");
             return;
         }
 
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        if (selectedTask == null) {
+            alertService.showAlert("Keine Ausgabe ausgewählt", "Wählen Sie eine Aufgabe aus");
+            return;
+        }
 
+        // parse start/end time
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:m");
         LocalTime startTime;
         try {
             startTime = LocalTime.parse(startTimeString, timeFormatter);
         } catch (DateTimeParseException e) {
-            System.out.println("Error parsing startTime: " + e.getMessage());
+            alertService.showAlert("Ungültige Startzeit", "Geben Sie eine gültige Startzeit ein (Beispiel 9:15)");
             return;
         }
 
@@ -119,9 +120,11 @@ public class RecordController {
         try {
             endTime = LocalTime.parse(endTimeString, timeFormatter);
         } catch (DateTimeParseException e) {
-            System.out.println("Error parsing endTime: " + e.getMessage());
+            alertService.showAlert("Ungültige Endzeit", "Geben Sie eine gültige Endzeit ein (Beispiel 9:15)");
             return;
         }
+
+        RecordDTO record = new RecordDTO();
 
         record.setStartTime(LocalDateTime.of(date, startTime));
         record.setEndTime(LocalDateTime.of(date, endTime));
@@ -133,13 +136,18 @@ public class RecordController {
             if (success) {
                 navigationService.showOverview(layoutRoot.getScene());
             } else {
-                System.out.println("Error creating Record: " + error.getMessage());
+                alertService.showAlert("Fehler beim Erstellen der Aufzeichnung", "Die Aufzeichnung wurde nicht gespeichert, folgender Fehler ist aufgetreten: " + (error != null ? error.getMessage() : "unbekannt"));
             }
         });
     }
 
     @FXML
     void showOverview() {
+        navigationService.showOverview(layoutRoot.getScene());
+    }
+
+    @FXML
+    void cancelButtonClicked() {
         navigationService.showOverview(layoutRoot.getScene());
     }
 }
