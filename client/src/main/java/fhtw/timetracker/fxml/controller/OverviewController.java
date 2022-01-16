@@ -5,6 +5,7 @@ import fhtw.timetracker.model.RecordDTO;
 import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.NetworkService;
+import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ public class OverviewController {
 
     private final NavigationService navigationService = new NavigationService();
     private final NetworkService networkService = new NetworkService();
+    private final AlertService alertService = new AlertService();
 
     @FXML
     private Button btn_back;
@@ -62,6 +64,19 @@ public class OverviewController {
     @FXML
     void createRecord() {
         navigationService.showCreateRecord(btn_back.getScene());
+    }
+
+    @FXML
+    void showRecord() {
+        int selectedRecordIndex = recordsListView.getSelectionModel().getSelectedIndex();
+        RecordDTO selectedRecord = selectedRecordIndex > -1 ? this.records.get(selectedRecordIndex) : null;
+
+        if (selectedRecord == null) {
+            alertService.showAlert("Keine Aufnahme ausgewählt", "Wählen Sie eine Aufnahme aus");
+            return;
+        }
+
+        // Call scene switch to details for selected record
     }
 
     @FXML
