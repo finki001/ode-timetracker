@@ -20,23 +20,23 @@ online gespeichert und abgerufen werden können.
 ## Übersicht über die Funktionalität
 
 ### Erstellen eines Benutzers
-Nach dem Start der App kann man sich entweder im Client anmelden oder einen neuen Benutzer erstellen:
+Nach dem Start der App kann man sich entweder im Client anmelden oder einen neuen Benutzer erstellen:<br>
 ![alt text](images/login.png)
 ![alt text](images/createUser.png)
 ### Erstellen einer Aufgabe
-Um eine Zeit auf eine Aufgabe zu Buchen, muss zuerst eine Aufgabe erstellt werden, das geht über das Menü, welches nach dem Login sichtbar ist.
+Um eine Zeit auf eine Aufgabe zu Buchen, muss zuerst eine Aufgabe erstellt werden, das geht über das Menü, welches nach dem Login sichtbar ist.<br>
 ![alt text](images/createTask.png)
 ### Übersicht über Aufgaben + Löschmöglichkeit
-Danach gelangt man in die Übersicht über alle Aufgaben, wo auch per Rechtsklick Aufgaben gelöscht werden können (sofern keine Zeit auf diese gebucht wurde).
+Danach gelangt man in die Übersicht über alle Aufgaben, wo auch per Rechtsklick Aufgaben gelöscht werden können (sofern keine Zeit auf diese gebucht wurde).<br>
 ![alt text](images/taskOverview.png)
 ### Buchen von Zeit auf eine Aufgabe
-Wenn eine Aufgabe erstellt wurde kann Zeit darauf aufgezeichnet werden, im Menü unter Aufzeichnungen -> Aufzeichnung erstellen
+Wenn eine Aufgabe erstellt wurde kann Zeit darauf aufgezeichnet werden, im Menü unter Aufzeichnungen -> Aufzeichnung erstellen<br>
 ![alt text](images/createRecord.png)
 ### Übersicht über Zeitaufzeichnungen
-Nach dem Erstellen einer Zeitaufzeichnung kommt man in die Übersicht (welche auch nach dem Login sichtbar ist, oder über das Menü mit Aufzeichnungen -> Übersicht erreicht werden kann), wo man eine Aufzeichnung auswählen kann. Hier kann auch eine Zeitaufzeichnung ausgewählt werden, und mit einem Klick auf Anzeigen werden alle Details sichtbar.
+Nach dem Erstellen einer Zeitaufzeichnung kommt man in die Übersicht (welche auch nach dem Login sichtbar ist, oder über das Menü mit Aufzeichnungen -> Übersicht erreicht werden kann), wo man eine Aufzeichnung auswählen kann. Hier kann auch eine Zeitaufzeichnung ausgewählt werden, und mit einem Klick auf Anzeigen werden alle Details sichtbar.<br>
 ![alt text](images/overview.png)
 ### Detailansicht für eine Aufzeichnung + Löschmöglichkeit
-In der Detailansicht der Aufzeichnung kann die Aufzeichnung gelöscht werden.
+In der Detailansicht der Aufzeichnung kann die Aufzeichnung gelöscht werden.<br>
 ![alt text](images/recordDetails.png)
 
 ## Projekt Mitglieder
