@@ -1,6 +1,8 @@
 package fhtw.timetracker.service;
 
 import fhtw.timetracker.model.Credentials;
+import fhtw.timetracker.model.Role;
+import fhtw.timetracker.model.SignUpUser;
 import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.AuthenticationInterceptor;
 import fhtw.timetracker.network.NetworkCallback;
@@ -12,8 +14,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import javax.swing.*;
 
 public class LoginService {
 
@@ -52,17 +52,21 @@ public class LoginService {
         });
     }
 
-    public static class cancelButtonClicked {
+    public void createUser(String login, String firstname, String lastname, String password, NetworkCallback<Boolean> networkCallback) {
+        backendApi.createUser(new SignUpUser(login, firstname, lastname, Role.USER, password)).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    networkCallback.onResponse(true, true, null);
+                } else {
+                    networkCallback.onResponse(false, null, new Exception("Error creating user: HTTP - " + response.code()));
+                }
+            }
 
-        public void main(final String[] args) {
-            final JFrame parent = new JFrame();
-            JButton cancelButtonClicked = new JButton();
-            String name = JOptionPane.showInputDialog(parent,
-                    "Cancel Button Clicked", null);
-
-        }
-
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                networkCallback.onResponse(false, null, t);
+            }
+        });
     }
-
-    //cancelButtonClicked
 }

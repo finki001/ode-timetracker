@@ -13,6 +13,10 @@ public class NavigationService {
 
     public void logout(final Scene scene) {
         StateService.getInstance().reset();
+        showLogin(scene);
+    }
+
+    public void showLogin(final Scene scene) {
         navigate(scene, "login");
     }
 
@@ -48,5 +52,9 @@ public class NavigationService {
 
     public void showCreateTask(final Scene scene) {
         navigate(scene, "createTask");
+    }
+
+    public void showCreateUser(Scene scene) {
+        navigate(scene, "createUser");
     }
 }
