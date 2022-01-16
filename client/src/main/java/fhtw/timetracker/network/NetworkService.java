@@ -166,8 +166,13 @@ public class NetworkService {
         serverApi.deleteTask(taskId).enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                Boolean deleteSuccessful = response.body();
                 if (response.isSuccessful()) {
-                    callback.onResponse(true, null, null);
+                    if (deleteSuccessful != null && deleteSuccessful) {
+                        callback.onResponse(true, null, null);
+                    } else {
+                        callback.onResponse(false, null, new Exception("Wird diese Aufgabe noch in Aufeichnungen verwendet? Bitte löschen Sie zuvor alle Zeitaufzeichnungen für diese Aufgabe."));
+                    }
                 } else {
                     callback.onResponse(false, null, new Exception("Failed to delete Task, HTTP - " + response.code()));
                 }
