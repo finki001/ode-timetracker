@@ -32,7 +32,7 @@
                         <MenuItem fx:id="btn_create_record1" mnemonicParsing="false" onAction="#createRecord" text="Aufzeichnung erstellen" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Aufgabe">
+                  <Menu mnemonicParsing="false" text="Aufgaben">
                      <items>
                         <MenuItem fx:id="btn_create_task" mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen" />
                         <MenuItem fx:id="btn_show_task_list" mnemonicParsing="false" onAction="#showTaskList" text="Aufgabenliste" />

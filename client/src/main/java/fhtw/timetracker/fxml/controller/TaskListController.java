@@ -4,6 +4,7 @@ import fhtw.timetracker.NavigationService;
 import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.network.NetworkService;
 import fhtw.timetracker.service.AlertService;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -75,9 +76,11 @@ public class TaskListController {
     private void reloadTasks() {
         networkService.findAllTasks((success, tasks, error) -> {
             if (success) {
-                taskList.clear();
-                taskList.addAll(tasks);
-                task_list.setItems(FXCollections.observableList(tasks));
+                Platform.runLater(() -> {
+                    taskList.clear();
+                    taskList.addAll(tasks);
+                    task_list.setItems(FXCollections.observableList(tasks));
+                });
             } else {
                 alertService.showAlert("Fehler beim Laden der Aufgaben", "Die Aufgaben konnten nicht geladen werden: " + (error != null ? error.getLocalizedMessage() : null));
             }
