@@ -37,8 +37,6 @@ public class DetailsController {
     @FXML
     private BorderPane layoutRoot;
 
-    private RecordDTO record;
-
     // label to write on TODO
 
     @FXML
@@ -55,6 +53,8 @@ public class DetailsController {
 
     @FXML
     private Label label_notizen;
+
+    private RecordDTO record;
 
     @FXML
     void initialize() {
@@ -75,6 +75,11 @@ public class DetailsController {
                 }
             }
         });
+    }
+
+    @FXML
+    void cancelButtonClicked(ActionEvent event) {
+        navigationService.showOverview(layoutRoot.getScene());
     }
 
     @FXML
