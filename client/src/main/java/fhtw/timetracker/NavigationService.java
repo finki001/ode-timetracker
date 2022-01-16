@@ -41,4 +41,12 @@ public class NavigationService {
         Platform.exit();
         System.exit(0);
     }
+
+    public void showTaskList(final Scene scene) {
+        navigate(scene, "taskList");
+    }
+
+    public void showCreateTask(final Scene scene) {
+        navigate(scene, "createTask");
+    }
 }

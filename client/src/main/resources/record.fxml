@@ -31,6 +31,12 @@
                         <MenuItem fx:id="btn_close2" mnemonicParsing="false" onAction="#closeApp" text="Close" />
                             </items>
                         </Menu>
+                  <Menu mnemonicParsing="false" text="Aufgaben">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#createTask" text="Aufgabe erstellen" />
+                        <MenuItem mnemonicParsing="false" onAction="#showTaskList" text="Aufgaben Liste" />
+                    </items>
+                  </Menu>
                     </menus>
                 </MenuBar>
             </children>
