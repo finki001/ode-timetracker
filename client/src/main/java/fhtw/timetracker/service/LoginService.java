@@ -13,6 +13,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.swing.*;
+
 public class LoginService {
 
     private final TimetrackerServerApi backendApi;
@@ -48,4 +50,18 @@ public class LoginService {
             }
         });
     }
+
+    public static class cancelButtonClicked {
+
+        public void main(final String[] args) {
+            final JFrame parent = new JFrame();
+            JButton cancelButtonClicked = new JButton();
+            String name = JOptionPane.showInputDialog(parent,
+                    "Cancel Button Clicked", null);
+
+        }
+
+    }
+
+    //cancelButtonClicked
 }
