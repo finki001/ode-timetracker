@@ -44,7 +44,7 @@ public class LoginController {
         } else if (password.isBlank()) {
             txt_password.setPromptText("Field must not be empty");
         } else {
-            loginService.login(password, username, (success, response, error) -> {
+            loginService.login(username, password, (success, response, error) -> {
                 if (success) {
                     navigationService.loginSuccessful();
                 } else {
