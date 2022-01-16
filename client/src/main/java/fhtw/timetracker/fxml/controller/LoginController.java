@@ -1,8 +1,8 @@
 package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
-import fhtw.timetracker.network.NetworkService;
 import fhtw.timetracker.service.LoginService;
+import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +45,7 @@ public class LoginController {
             loginService.login(username, password, (success, user, error) -> {
                 if (success) {
                     navigationService.showOverview(btn_login.getScene());
-                    NetworkService.userId = user.getId();
+                    StateService.getInstance().setUserId(user.getId());
                 } else {
                     Platform.runLater(() -> {
                         txt_username.clear();

@@ -5,6 +5,7 @@ import fhtw.timetracker.model.RecordDTO;
 import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.NetworkService;
+import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -124,7 +125,7 @@ public class RecordController {
 
         record.setStartTime(LocalDateTime.of(date, startTime));
         record.setEndTime(LocalDateTime.of(date, endTime));
-        record.setUser(new UserDTO(NetworkService.userId));
+        record.setUser(new UserDTO(StateService.getInstance().getUserId()));
         record.setNotes(txt_description.getText().trim());
 
         record.setTask(new TaskDTO(selectedTask.getId()));

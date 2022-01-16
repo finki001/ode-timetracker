@@ -18,8 +18,6 @@ public class NetworkService {
 
     private final TimetrackerServerApi serverApi;
 
-    public static int userId;
-
     public NetworkService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient.Builder().addInterceptor(new AuthenticationInterceptor()).build())

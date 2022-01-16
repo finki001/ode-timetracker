@@ -38,7 +38,7 @@ public class LoginService {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    AuthenticationInterceptor.authHeader = response.headers().get("Authorization");
+                    StateService.getInstance().setAuthHeader(response.headers().get("Authorization"));
                     networkService.loadUserByLogin(username, callback);
                 } else {
                     callback.onResponse(false, null, new Exception("Error logging in: HTTP - " + response.code()));

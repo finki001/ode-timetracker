@@ -1,6 +1,6 @@
 package fhtw.timetracker;
 
-import fhtw.timetracker.network.AuthenticationInterceptor;
+import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +12,7 @@ import java.util.Objects;
 public class NavigationService {
 
     public void logout(final Scene scene) {
-        AuthenticationInterceptor.authHeader = "";
+        StateService.getInstance().reset();
         navigate(scene, "login");
     }
 
