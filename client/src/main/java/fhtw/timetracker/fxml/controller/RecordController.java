@@ -150,4 +150,14 @@ public class RecordController {
     void cancelButtonClicked() {
         navigationService.showOverview(layoutRoot.getScene());
     }
+
+    @FXML
+    void createTask() {
+        navigationService.showCreateTask(layoutRoot.getScene());
+    }
+
+    @FXML
+    void showTaskList() {
+        navigationService.showTaskList(layoutRoot.getScene());
+    }
 }

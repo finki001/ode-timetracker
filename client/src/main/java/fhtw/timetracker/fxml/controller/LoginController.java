@@ -60,4 +60,10 @@ public class LoginController {
             }
         });
     }
+
+    @FXML
+    void createUser() {
+        navigationService.showCreateUser(btn_login.getScene());
+    }
+
 }

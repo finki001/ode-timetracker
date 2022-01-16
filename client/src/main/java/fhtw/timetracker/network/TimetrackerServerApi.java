@@ -17,7 +17,7 @@ public interface TimetrackerServerApi {
     Call<UserDTO> findUserByLogin(@Path("login") String login);
 
     @POST("users")
-    Call<Void> createUser(SignUpUser signUpUser);
+    Call<Void> createUser(@Body SignUpUser signUpUser);
 
     @DELETE("tasks/{userId}")
     Call<Boolean> deleteUser(@Path("userId") int userId);
@@ -29,7 +29,7 @@ public interface TimetrackerServerApi {
     Call<List<TaskDTO>> findAllTasks();
 
     @POST("tasks")
-    Call<TaskDTO> createTask(TaskDTO taskDTO);
+    Call<TaskDTO> createTask(@Body TaskDTO taskDTO);
 
     @DELETE("tasks/{taskId}")
     Call<Boolean> deleteTask(@Path("taskId") int taskId);
