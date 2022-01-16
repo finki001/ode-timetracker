@@ -2,11 +2,10 @@ package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
 import fhtw.timetracker.model.RecordDTO;
-import fhtw.timetracker.model.TaskDTO;
 import fhtw.timetracker.network.NetworkService;
+import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.StateService;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,14 +13,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
-import java.awt.*;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class DetailsController {
     private final NavigationService navigationService = new NavigationService();
     private final NetworkService networkService = new NetworkService();
+    private final AlertService alertService = new AlertService();
 
     @FXML
     private Button btn_cancel;
@@ -61,7 +58,7 @@ public class DetailsController {
     void initialize() {
         networkService.findAllRecordsForUserId(StateService.getInstance().getUserId(), (success, records, error) -> {
             if (success) {
-                if(-1 != StateService.getInstance().getRecordId()) {
+                if (-1 != StateService.getInstance().getRecordId()) {
                     for (RecordDTO record : records) {
                         if (record.getId() == StateService.getInstance().getRecordId()) {
                             this.record = record;
@@ -104,4 +101,14 @@ public class DetailsController {
         navigationService.showOverview(layoutRoot.getScene());
     }
 
+    @FXML
+    void deleteRecord() {
+        networkService.deleteRecord(record.getId(), (success, response, error) -> {
+            if (success) {
+                navigationService.showOverview(layoutRoot.getScene());
+            } else {
+                alertService.showAlert("Fehler beim Löschen", "Die Aufzeichnung konnte nicht gelöscht werden: " + (error != null ? error.getLocalizedMessage() : null));
+            }
+        });
+    }
 }

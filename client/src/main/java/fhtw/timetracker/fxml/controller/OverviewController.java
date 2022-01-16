@@ -2,12 +2,9 @@ package fhtw.timetracker.fxml.controller;
 
 import fhtw.timetracker.NavigationService;
 import fhtw.timetracker.model.RecordDTO;
-import fhtw.timetracker.model.TaskDTO;
-import fhtw.timetracker.model.UserDTO;
 import fhtw.timetracker.network.NetworkService;
 import fhtw.timetracker.service.AlertService;
 import fhtw.timetracker.service.StateService;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,18 +38,21 @@ public class OverviewController {
     private Label lbl_timeCalc;
 
     @FXML
-    private ListView recordsListView;
+    private ListView<String> recordsListView;
 
     private List<RecordDTO> records;
+
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
     @FXML
     void initialize() {
         networkService.findAllRecordsForUserId(StateService.getInstance().getUserId(), (success, records, error) -> {
             if (success) {
-                Platform.runLater(() -> {
-                    this.records = records;
-                    recordsListView.setItems(FXCollections.observableArrayList(records.stream().map(RecordDTO::getNotes).collect(Collectors.toList())));
-                });
+                this.records = records;
+                recordsListView.setItems(FXCollections.observableArrayList(records.stream().map(record ->
+                        dateFormatter.format(record.getStartTime()) + ", " + timeFormatter.format(record.getStartTime()) + " - " + timeFormatter.format(record.getEndTime()) + (record.getNotes().isBlank() ? "" : ", Notiz: " + record.getNotes().trim())).collect(Collectors.toList()))
+                );
             }
         });
     }

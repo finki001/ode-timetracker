@@ -69,10 +69,8 @@ public class RecordController {
     void initialize() {
         networkService.findAllTasks((success, tasks, error) -> {
             if (success) {
-                Platform.runLater(() -> {
                     this.tasks = tasks;
                     choiceBoxTasks.setItems(FXCollections.observableArrayList(tasks.stream().map(TaskDTO::getName).collect(Collectors.toList())));
-                });
             }
         });
     }
