@@ -45,4 +45,8 @@ public class CreateUserController {
         );
     }
 
+    @FXML
+    void goToLogin() {
+        navigationService.showLogin(text_username.getScene());
+    }
 }

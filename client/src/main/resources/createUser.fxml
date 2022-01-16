@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fhtw.timetracker.fxml.controller.CreateUserController">
    <children>
       <Pane id="background_dark" layoutX="-3.0" prefHeight="403.0" prefWidth="600.0" style="-fx-background-color: #1e2122;">
@@ -42,6 +41,11 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
+            <Button fx:id="btn_back" layoutX="300.0" layoutY="323.0" mnemonicParsing="false" onAction="#goToLogin" style="-fx-background-color: #a9a9a9a9a9a9;" text="Zurück">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

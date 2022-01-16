@@ -85,4 +85,14 @@ public class OverviewController {
     void logout() {
         navigationService.logout(btn_back.getScene());
     }
+
+    @FXML
+    void createTask() {
+        navigationService.showCreateTask(recordsListView.getScene());
+    }
+
+    @FXML
+    void showTaskList() {
+        navigationService.showTaskList(recordsListView.getScene());
+    }
 }
