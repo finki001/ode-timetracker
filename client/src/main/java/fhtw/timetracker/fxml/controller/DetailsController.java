@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,7 +69,13 @@ public class DetailsController {
                     }
 
                     Platform.runLater(() -> {
-
+                        LocalDateTime startTime = this.record.getStartTime();
+                        LocalDateTime endTime = this.record.getEndTime();
+                        label_datum.setText(startTime.getDayOfMonth() + "." + startTime.getMonthValue() + "." + startTime.getYear());
+                        label_start.setText(startTime.getHour() + ":" + startTime.getMinute());
+                        label_ende.setText(endTime.getHour() + ":" + endTime.getMinute());
+                        label_aufgabe.setText(this.record.getTask().getName());
+                        label_notizen.setText(this.record.getNotes());
                     });
                 } else {
                     navigationService.showOverview(layoutRoot.getScene());
