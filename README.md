@@ -6,17 +6,14 @@ hinzufügen und Zeiten darauf zu buchen. Die Zeiten sollen sich mit einem Online
 online gespeichert und abgerufen werden können.
 
 ## Server und Client starten
-Start des Servers: `./gradlew bootRun`
-### Wichtiger Hinweis beim ersten Start
-Die Datenbank muss beim ersten Start initialisiert werden (mit Schema/Daten, welche in den Files `schema.sql` und `data.sql` liegen).<br> Dafür muss man im `application.properties` File `spring.sql.init.mode` auf `always` setzen. Wird der Server später erneut gestartet <b>MUSS</b> diese Einstellung auf `never` zurückgesetzt werden.
-Der Server failed sonst beim Startup mit einer Error-Message, dass die Tabellen schon existieren<br><br>
-Wenn der Server läuft (in der Konsole steht ca so etwas: Started TimeTrackerServer in 8.53 seconds (JVM running for 8.989)) kann der Client gestartet werden:`./gradlew run`<br><br>
+Start des Servers (muss zuerst gestartet werden): `./gradlew bootRun`<br>
+Start des Clients:`./gradlew run`<br><br>
 
 
 ## Übersicht über die Funktionalität
 
 ### Erstellen eines Benutzers
-Nach dem Start der App kann man sich entweder im Client anmelden oder einen neuen Benutzer erstellen (zu Testzwecken gibt es einen Benutzer `michi`/`michi123`, welcher bereits einige Aufzeichnungen hat).<br>
+Nach dem Start der App kann man sich entweder im Client anmelden oder einen neuen Benutzer erstellen.<br>
 ![alt text](images/login.png)
 ![alt text](images/createUser.png)
 ### Erstellen einer Aufgabe
